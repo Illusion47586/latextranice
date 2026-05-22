@@ -19,7 +19,7 @@ Use this skill to turn a job posting link into a practical resume-targeting work
    - Extract ATS keywords, technologies, responsibilities, seniority signals, and evaluation criteria.
    - Describe what a strong matching resume should emphasize.
 3. Inspect the target resume.
-   - Default document id: `dhruv-resume`.
+   - Default document id: `base-resume`.
    - Read `docs/<document-id>/main.tex`.
    - Use `bun src/cli.ts list --json` if the target document is unclear.
 4. Compare job brief against the resume.
@@ -28,7 +28,7 @@ Use this skill to turn a job posting link into a practical resume-targeting work
 5. Work interactively with the user.
    - Ask before making strategic changes that affect truth, positioning, seniority, or role focus.
    - Use the structured question UI described below when it is available.
-   - Prefer branching before tailoring: `bun src/cli.ts branch --from dhruv-resume --to <job-specific-id> --json`.
+   - Prefer branching before tailoring: `bun src/cli.ts branch --from base-resume --to <job-specific-id> --json`.
    - Never fabricate experience, metrics, employers, tools, or outcomes.
 6. After edits, validate.
    - Run `bun src/cli.ts build --doc <document-id> --json`.
@@ -39,7 +39,7 @@ Use this skill to turn a job posting link into a practical resume-targeting work
 
 Ask only questions that affect targeting or truth:
 
-- Which resume variant should be tailored, if not `dhruv-resume`?
+- Which resume variant should be tailored, if not `base-resume`?
 - Should this be a new branch/variant for the company or role?
 - Which experiences are true but under-documented in the current resume?
 - Are there metrics, scale numbers, or project details the user can confirm?

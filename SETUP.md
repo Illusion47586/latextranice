@@ -54,7 +54,7 @@ brew install --cask mactex
 
 ## 3. Install Resume LaTeX Packages
 
-For the current `dhruv-resume` document, install the broader LaTeX package collection first:
+For the current `base-resume` document, install the broader LaTeX package collection first:
 
 ```bash
 tlmgr install collection-latexextra collection-fontsrecommended
@@ -93,21 +93,21 @@ Expected tools:
 Build the default resume:
 
 ```bash
-bun src/cli.ts clean --doc dhruv-resume
-bun src/cli.ts build --doc dhruv-resume --json --pretty
+bun src/cli.ts clean --doc base-resume
+bun src/cli.ts build --doc base-resume --json --pretty
 ```
 
 The generated files are:
 
 ```text
-.latex-build/dhruv-resume/main.pdf
-dist/dhruv-resume/resume.pdf
+.latex-build/base-resume/main.pdf
+dist/base-resume/resume.pdf
 ```
 
 Build a resume variant by changing `--doc`:
 
 ```bash
-bun src/cli.ts build --doc sourcegraph-code-understanding --json --pretty
+bun src/cli.ts build --doc company-role-resume --json --pretty
 ```
 
 ## 6. Start the Browser Preview
@@ -147,19 +147,19 @@ All CLI commands are non-interactive and suitable for local agents:
 ```bash
 bun src/cli.ts list --json --pretty
 bun src/cli.ts check --json
-bun src/cli.ts build --doc dhruv-resume --json --pretty
-bun src/cli.ts export --doc dhruv-resume --json --pretty
-bun src/cli.ts clean --doc dhruv-resume --json
-bun src/cli.ts branch --from dhruv-resume --to company-role-resume --json --pretty
+bun src/cli.ts build --doc base-resume --json --pretty
+bun src/cli.ts export --doc base-resume --json --pretty
+bun src/cli.ts clean --doc base-resume --json
+bun src/cli.ts branch --from base-resume --to company-role-resume --json --pretty
 ```
 
 Package aliases:
 
 ```bash
 bun run list
-bun run build:pdf -- --doc dhruv-resume --json --pretty
-bun run export:pdf -- --doc dhruv-resume --json --pretty
-bun run branch -- --from dhruv-resume --to company-role-resume --json --pretty
+bun run build:pdf -- --doc base-resume --json --pretty
+bun run export:pdf -- --doc base-resume --json --pretty
+bun run branch -- --from base-resume --to company-role-resume --json --pretty
 ```
 
 ## 9. Development Checks
@@ -218,8 +218,8 @@ tlmgr install collection-fontsrecommended psnfss
 Then clean and rebuild:
 
 ```bash
-bun src/cli.ts clean --doc dhruv-resume
-bun src/cli.ts build --doc dhruv-resume --json --pretty
+bun src/cli.ts clean --doc base-resume
+bun src/cli.ts build --doc base-resume --json --pretty
 ```
 
 ### `latexmk` says a previous invocation failed
@@ -227,6 +227,6 @@ bun src/cli.ts build --doc dhruv-resume --json --pretty
 Clean generated artifacts before rebuilding:
 
 ```bash
-bun src/cli.ts clean --doc dhruv-resume
-bun src/cli.ts build --doc dhruv-resume --json --pretty
+bun src/cli.ts clean --doc base-resume
+bun src/cli.ts build --doc base-resume --json --pretty
 ```

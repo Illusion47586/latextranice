@@ -22,7 +22,7 @@ Each document is a self-contained LaTeX project under `docs/<document-id>/`.
 
 ```text
 docs/
-  dhruv-resume/
+  base-resume/
     main.tex
     latexmkrc
     README.txt
@@ -104,34 +104,34 @@ bun src/cli.ts check --json
 Build a document:
 
 ```bash
-bun src/cli.ts build --doc dhruv-resume --json --pretty
+bun src/cli.ts build --doc base-resume --json --pretty
 ```
 
 Export a document PDF:
 
 ```bash
-bun src/cli.ts export --doc dhruv-resume --json --pretty
+bun src/cli.ts export --doc base-resume --json --pretty
 ```
 
 Clean generated artifacts:
 
 ```bash
-bun src/cli.ts clean --doc dhruv-resume --json
+bun src/cli.ts clean --doc base-resume --json
 ```
 
 Branch a resume variant:
 
 ```bash
-bun src/cli.ts branch --from dhruv-resume --to company-role-resume --json --pretty
+bun src/cli.ts branch --from base-resume --to company-role-resume --json --pretty
 ```
 
 Package aliases are available:
 
 ```bash
 bun run list
-bun run build:pdf -- --doc dhruv-resume --json --pretty
-bun run export:pdf -- --doc dhruv-resume --json --pretty
-bun run branch -- --from dhruv-resume --to company-role-resume --json --pretty
+bun run build:pdf -- --doc base-resume --json --pretty
+bun run export:pdf -- --doc base-resume --json --pretty
+bun run branch -- --from base-resume --to company-role-resume --json --pretty
 ```
 
 ## Resume Branching
@@ -139,7 +139,7 @@ bun run branch -- --from dhruv-resume --to company-role-resume --json --pretty
 Branching copies an entire document folder. This preserves local LaTeX context, custom packages, assets, fonts, and document-specific settings.
 
 ```bash
-bun src/cli.ts branch --from dhruv-resume --to sourcegraph-code-understanding --json --pretty
+bun src/cli.ts branch --from base-resume --to company-role-resume --json --pretty
 ```
 
 Document ids must use lowercase letters, numbers, and hyphens. Branching refuses to overwrite an existing document.

@@ -5,7 +5,7 @@ This repository is a Bun + TypeScript LaTeX resume manager.
 ## Operating Rules
 
 - Treat `docs/<document-id>/` as the source of truth for resume documents.
-- Do not recreate root-level `main.tex`, `latexmkrc`, or `README.txt`; those were migrated into `docs/dhruv-resume/`.
+- Do not recreate root-level `main.tex`, `latexmkrc`, or `README.txt`; those were migrated into `docs/base-resume/`.
 - Keep CLI commands non-interactive. New commands must have stable exit codes and should support `--json` when useful.
 - Prefer Bun-native APIs where available: `Bun.file`, `Bun.write`, `Bun.Glob`, `Bun.spawn`, `Bun.serve`, and `Bun.build`.
 - Use Node-compatible modules only for gaps such as path operations, directory creation/removal, recursive copy, and filesystem watching.
@@ -20,8 +20,8 @@ This repository is a Bun + TypeScript LaTeX resume manager.
 ```bash
 bun run check:tools
 bun src/cli.ts list --json --pretty
-bun src/cli.ts build --doc dhruv-resume --json
-bun src/cli.ts branch --from dhruv-resume --to <new-document-id> --json
+bun src/cli.ts build --doc base-resume --json
+bun src/cli.ts branch --from base-resume --to <new-document-id> --json
 bun run typecheck
 bun run lint
 ```

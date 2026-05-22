@@ -82,7 +82,7 @@ export const resolveDocument = async (
   if (documents.length === 0) {
     return {
       ok: false,
-      message: `No documents found. Add a folder like ${path.join("docs", "dhruv-resume")} with a main.tex file.`,
+      message: `No documents found. Add a folder like ${path.join("docs", "base-resume")} with a main.tex file.`,
     };
   }
 
@@ -90,7 +90,7 @@ export const resolveDocument = async (
   if (!firstDocument) {
     return {
       ok: false,
-      message: `No documents found. Add a folder like ${path.join("docs", "dhruv-resume")} with a main.tex file.`,
+      message: `No documents found. Add a folder like ${path.join("docs", "base-resume")} with a main.tex file.`,
     };
   }
 
