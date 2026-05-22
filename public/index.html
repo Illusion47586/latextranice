@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>latextranice</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">latextranice</p>
+        <h1>Live preview</h1>
+      </div>
+      <div class="topbar-actions">
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+        >
+          <span id="theme-icon" class="theme-icon" aria-hidden="true"></span>
+          <span id="theme-label">Dark</span>
+        </button>
+        <label class="document-picker">
+          <span>Document</span>
+          <select id="document-select"></select>
+        </label>
+        <a class="download" href="/download">Download PDF</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="preview" aria-label="PDF preview">
+        <iframe id="pdf-frame" title="Resume PDF preview"></iframe>
+        <div id="empty-state" class="empty-state">
+          <strong>No PDF yet</strong>
+          <span>Waiting for the first successful LaTeX build.</span>
+        </div>
+      </section>
+
+      <aside class="status-panel" aria-label="Build status">
+        <div class="status-row">
+          <span id="status-dot" class="status-dot idle"></span>
+          <div>
+            <p id="status-label" class="status-label">Idle</p>
+            <p id="status-message" class="status-message">
+              Waiting for LaTeX changes.
+            </p>
+          </div>
+        </div>
+
+        <dl class="meta">
+          <div>
+            <dt>Source</dt>
+            <dd id="source-path">No document selected</dd>
+          </div>
+          <div>
+            <dt>Last compile</dt>
+            <dd id="last-compiled">Never</dd>
+          </div>
+        </dl>
+
+        <pre id="build-log" class="build-log" aria-label="Build log"></pre>
+      </aside>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

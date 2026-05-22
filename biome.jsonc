@@ -1,0 +1,9 @@
+{
+  "extends": ["ultracite/biome/core"],
+  "files": {
+    "includes": ["!dist", "!.latex-build", "!node_modules"]
+  },
+  "javascript": {
+    "globals": ["Bun"]
+  }
+}

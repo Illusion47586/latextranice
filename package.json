@@ -1,0 +1,27 @@
+{
+  "name": "latextranice",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun src/server.ts",
+    "check:tools": "bash scripts/check-prereqs.sh",
+    "skills:add": "bunx skills experiment_install",
+    "list": "bun src/cli.ts list",
+    "check": "bun src/cli.ts check",
+    "build:pdf": "bun src/cli.ts build",
+    "export:pdf": "bun src/cli.ts export",
+    "branch": "bun src/cli.ts branch",
+    "clean": "bun src/cli.ts clean",
+    "typecheck": "tsc --noEmit",
+    "lint": "ultracite check",
+    "format": "ultracite fix",
+    "doctor": "ultracite doctor"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "latest",
+    "@types/bun": "latest",
+    "typescript": "latest",
+    "ultracite": "latest"
+  }
+}

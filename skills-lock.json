@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "skills": {
+    "bun": {
+      "source": "bun.com",
+      "sourceType": "well-known",
+      "computedHash": "110f793dac734495035068667a682f84f9abf554824002d95c870ea5d9a555d3"
+    },
+    "latex-paper-en": {
+      "source": "bahayonghang/academic-writing-skills",
+      "sourceType": "github",
+      "skillPath": "academic-writing-skills/latex-paper-en/SKILL.md",
+      "computedHash": "4896a8737e0b60a26a7effd2b91a38e407c4bd5b606ab318fa3573d71802f1e5"
+    },
+    "tech-resume-optimizer": {
+      "source": "paramchoudhary/resumeskills",
+      "sourceType": "github",
+      "skillPath": "skills/tech-resume-optimizer/SKILL.md",
+      "computedHash": "2e29bf63c6532e5fb233aef21a7f7418a472fc52883995cd0d70544f1ba9b2ed"
+    }
+  }
+}
