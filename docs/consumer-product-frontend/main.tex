@@ -1,0 +1,250 @@
+\documentclass[a4paper,11pt]{article}
+
+% Package imports
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% Page layout
+\setlength{\multicolsep}{0pt}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt} % Addressing fancyhdr warning
+
+% Hyperlink setup (moved after fancyhdr to address warning)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% Custom box settings
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL style
+\urlstyle{same}
+
+% Text alignment
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}}
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% Commands for icon sizing and positioning
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% Font options
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (similar to Arial/Calibri)
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (similar to Times New Roman)
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (elegant serif)
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (readable serif)
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (similar to Trebuchet MS)
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (another Arial/Calibri alternative)
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (another elegant serif option)
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (another Times New Roman alternative)
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (clean serif font)
+
+\begin{document}
+\headerfontiii
+
+% Header
+\begin{center}
+    {\Huge\textbf{Dhruv Tiwari}}
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    \socialicon{\faLinkedin} \href{https://www.linkedin.com/in/dhruvtiwari47586/}{Dhruv Tiwari} |
+    \socialicon{\faGithub} \href{https://github.com/Illusion47586}{Illusion47586} |
+    +918800223291 | \href{mailto:dhruvtiwari110058@gmail.com}{dhruvtiwari110058@gmail.com}
+    }
+\end{center}
+
+\vspace{-6mm}
+
+\section{\textbf{Summary}}
+\vspace{1mm}
+\small{
+Senior consumer frontend engineer specializing in \textbf{React, Next.js, TypeScript, and high-performance product experiences}. Owns discovery, experimentation, reviews, media, and conversion-focused features end to end while strengthening the architecture and observability behind them.
+}
+\vspace{-2mm}
+
+
+
+\section{\textbf{Experience}}
+\vspace{-0.4mm}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+    {Senior Software Engineer, Headout}{}
+    {Hybrid, Bengaluru, India}{April 2025 - Current}
+    \resumeItemListStart
+    \item Led frontend delivery across the applications powering \textbf{headout.com} and microbrands, shipping product discovery, ranking, reviews, media, product-card, and trust experiences with shared React components.
+    \item Launched \textbf{Pinned Reviews} across consumer surfaces, improving product trust and driving a \textbf{38x increase in review interactions}; extended the work into reusable review cards, galleries, ratings, snapshots, and unified review sections.
+    \item Led \textbf{SSR and frontend performance} initiatives spanning API routing, DNS and keep-alive behavior, cache-control, response caching, runtime telemetry, and platform modernization.
+    \item Architected \textbf{Core Web Vitals observability} across multiple applications with Prometheus/Grafana dashboards and automated alerts, reducing mean time to detect user-experience regressions.
+    \item Built major parts of an internal AI delivery platform, including a \textbf{Next.js agent dashboard} and visual feature-validation workflows that helped teams ship frontend changes with faster feedback and stronger regression checks.
+    \resumeItemListEnd
+  \resumeSubheading
+      {Software Engineer, Headout}{}
+      {Remote, India}{June 2023 - March 2025}
+      \resumeItemListStart
+        \item Architected and shipped interactive \textbf{experience itineraries} with Leaflet and Google Maps routing, improving trip discovery while \textbf{saving USD 7.8k annually}.
+        \item Built and iterated on filters, sorting, dynamic rankings, product cards, traveler media, video experiences, localization, and SEO across collection, city, and product pages.
+        \item Increased \textbf{CDN cache hit ratio by 11\%} through cache-policy improvements and \textbf{reduced CPU usage across pages by 87\%}, improving frontend efficiency at scale.
+      \resumeItemListEnd
+  \resumeSubheading
+      {Software Engineer Intern, Headout}{}
+      {Remote, India}{October 2022 - May 2023}
+      \resumeItemListStart
+        \item Built and polished consumer frontend surfaces across \textbf{product pages, collection pages, navigation, social previews, localization, and mobile video experiences} for \textbf{headout.com} and microbrands.
+      \resumeItemListEnd
+  \resumeSubheading
+    {Student Contributor under Google Summer Of Code, Pluto.jl (Julia)}{}
+    {Remote, India}{May 2022 - October 2022}
+    \resumeItemListStart
+      \item Built and released \href{https://github.com/JuliaPluto/PlutoDesktop}{\textbf{PlutoDesktop}}, an \textbf{Electron + TypeScript} application that automated Julia runtime setup and background execution for Pluto notebooks; contributed upstream documentation and published a technical implementation article.
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Education}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Netaji Subhas University Of Technology}{New Delhi, India}
+{Bachelor of Technology in Information Technology}{August 2019 - August 2023}
+\resumeItemListStart
+\item GPA: 8.21/10.00
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Projects}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+  {Glyph - Source control for AI coding and agent-native workflows.}
+  {Go, local web dashboard}
+  {\href{https://glyph.notdhruv.com}{Docs}, \href{https://github.com/Illusion47586/glyph}{GitHub}}
+  {}
+\resumeItemListStart
+      \item Built a public 0-to-1 source-control prototype with a CLI and local dashboard for tracking agent work, file ownership, checkpoints, conflict boundaries, and Git-compatible exports.
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Technical Skills}}
+\vspace{1mm}
+{\textbf{Frontend:} React, Next.js, TypeScript, JavaScript, SSR, React Hooks, Responsive UI, Design Systems \\
+\textbf{Product:} Product Discovery, Experimentation, Analytics, Localization, SEO, Interactive Maps \\
+\textbf{Performance \& Platform:} Core Web Vitals, Web Performance, Node.js, CI/CD, Observability, Prometheus, Grafana}
+
+\vspace{-6mm}
+
+\end{document}
