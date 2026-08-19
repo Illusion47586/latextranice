@@ -144,6 +144,17 @@ bun src/cli.ts branch --from base-resume --to company-role-resume --json --prett
 
 Document ids must use lowercase letters, numbers, and hyphens. Branching refuses to overwrite an existing document.
 
+### Included Role-Specific Variants
+
+- `frontend-product-quality` emphasizes frontend architecture, product quality systems, visual regression, and design-system work.
+- `graviton-full-stack` emphasizes high-performance full-stack systems, real-time interfaces, observability, reliability, and end-to-end application ownership.
+
+Build the Graviton variant with:
+
+```bash
+bun src/cli.ts build --doc graviton-full-stack --json --pretty
+```
+
 ## Job Posting Workflow
 
 This repo includes a project-local `job-posting-resume-brief` skill for turning a job posting URL into a resume-targeting workflow.
